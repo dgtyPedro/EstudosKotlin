@@ -26,11 +26,13 @@ fun main() {
     testeCondicoes(intQualquer)
     iteracoes()
 
-    val minhaClasse = Classe()
+    val minhaClasse = Classe("texto1")
     minhaClasse.nome = "pedro"
     minhaClasse.saldo = 100
 
-    val outraClasse = Classe()
+//   erro por conta do construtor => val outraClasse = Classe()
+
+    val outraClasse = Classe("texto2")
     outraClasse.nome = "maria"
     outraClasse.saldo = 50
 
@@ -94,10 +96,15 @@ fun testeCondicoes(valor: Int) {
     }
 }
 
+//forma primaria, sem firula => class Classe(var obrigatorio: String){
 class Classe {
     var nome = ""
     var saldo = 0;
     private var secret = "senha perigosa"
+    var obrigatorio: String = ""
+    constructor(obrigatorio: String){
+        this.obrigatorio = obrigatorio
+    }
     //private não pode ser lida fora da classe
 
     fun mostrarNome() {
@@ -122,4 +129,11 @@ class Classe {
         secret = valor
         return true
     }
+
+    //Mesma coisa set get
+//    var secretProp = 0.0
+//        private set(valor){
+//            field = valor
+//        }
+//        get(){return field}
 }
